@@ -1,61 +1,21 @@
-// src/components/Navbar.jsx
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <nav
-      className="navbar navbar-expand-lg"
-      style={{ backgroundColor: "#000" }}
-    >
-      <div className="container">
-        <Link to="/" className="navbar-brand text-white fw-bold">
-          Cigarra.Net
+    <nav style={{ backgroundColor: "#121212", padding: "1rem" }}>
+      <div className="container" style={{ display: "flex", gap: "1.5rem" }}>
+        <Link to="/" style={{ color: "#FFD700", fontWeight: "700", textDecoration: "none" }}>
+          Home
         </Link>
-
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span
-            className="navbar-toggler-icon"
-            style={{ filter: "invert(1)" }}
-          ></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto align-items-center">
-            <li className="nav-item">
-              <Link to="/" className="nav-link text-white">
-                Inicio
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/about" className="nav-link text-white">
-                Acerca
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/contact" className="nav-link text-white">
-                Contacto
-              </Link>
-            </li>
-            <li className="nav-item ms-2">
-              <Link
-                to="/login"
-                className="btn"
-                style={{
-                  backgroundColor: "#FFD700",
-                  color: "#000",
-                  fontWeight: "bold",
-                }}
-              >
-                Iniciar sesión
-              </Link>
-            </li>
-          </ul>
-        </div>
+        <Link to="/demo" style={{ color: "#FFD700", fontWeight: "700", textDecoration: "none" }}>
+          Demo
+        </Link>
+        <Link to="/contact" style={{ color: "#FFD700", fontWeight: "700", textDecoration: "none" }}>
+          Contacto
+        </Link>
+        <Link to="/gallery" style={{ color: "#FFD700", fontWeight: "700", textDecoration: "none" }}>
+          Galería
+        </Link> {/* Nuevo botón */}
       </div>
     </nav>
   );

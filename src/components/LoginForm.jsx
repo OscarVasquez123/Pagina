@@ -1,11 +1,11 @@
-// src/components/LoginForm.jsx
-import { useState } from "react";
-import { Link } from "react-router-dom";
+// ... imports
+import { useNavigate } from "react-router-dom";
 
-export default function LoginForm({ onLogin }) {
+export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,8 +13,17 @@ export default function LoginForm({ onLogin }) {
       setError("Por favor, completa todos los campos.");
       return;
     }
-    setError("");
-    onLogin(email, password);
+
+    // Simulación de login
+    if (email === "admin@correo.com" && password === "123456") {
+      navigate("/dashboard");
+    } else {
+      setError("Correo o contraseña incorrectos.");
+    }
+  };
+
+  const handleGuestAccess = () => {
+    navigate("/dashboard"); // Ir directo sin login
   };
 
   return (
@@ -64,7 +73,7 @@ export default function LoginForm({ onLogin }) {
 
         <button
           type="submit"
-          className="btn w-100"
+          className="btn w-100 mb-2"
           style={{
             backgroundColor: "#FFD700",
             color: "#000",
@@ -72,6 +81,14 @@ export default function LoginForm({ onLogin }) {
           }}
         >
           Iniciar sesión
+        </button>
+
+        <button
+          type="button"
+          onClick={handleGuestAccess}
+          className="btn btn-outline-light w-100"
+        >
+          Entrar como invitado
         </button>
 
         <div className="text-center mt-3">
